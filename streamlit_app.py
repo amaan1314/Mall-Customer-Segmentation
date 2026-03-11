@@ -5,6 +5,8 @@ import joblib
 from sklearn.preprocessing import StandardScaler
 import plotly.graph_objects as go
 import plotly.express as px
+
+st.title("Mall Customer Segmentation using Machine Learning")
  
 # Page configuration
 st.set_page_config(
@@ -275,6 +277,24 @@ if model is not None and df is not None:
             features = clustered_df[['Age','Annual Income (k$)','Spending Score (1-100)']]
 
             clustered_df['Cluster'] = model.predict(features)
+            # Dashboard header
+            st.header("Customer Segmentation Dashboard")
+
+            st.write("This visualization shows how customers are grouped based on income and spending behavior.")
+
+            import plotly.express as px
+
+            fig = px.scatter(
+              clustered_df,
+              x="Annual Income (k$)",
+              y="Spending Score (1-100)",
+              color="Cluster",
+              size="Age",
+              hover_data=["CustomerID"],
+              title="Mall Customer Segments"
+            )
+
+            st.plotly_chart(fig, use_container_width=True)
 
            
             # Inverse transform to original scale for visualization
@@ -350,5 +370,6 @@ st.markdown("""
     </div>
 
 """, unsafe_allow_html=True)
+
 
 
