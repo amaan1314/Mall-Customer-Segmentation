@@ -243,7 +243,11 @@ if model is not None and df is not None:
             st.markdown("### 💡 Cluster Insights")
            
             # Calculate cluster statistics from original data
-            clustered_data = pd.read_csv("clustered_data.csv")
+            clustered_data = df.copy()
+
+            features = clustered_data[['Annual Income (k$)', 'Spending Score (1-100)']]
+            clustered_data['Cluster'] = model.predict(features)
+
             cluster_stats = clustered_data[clustered_data['Cluster'] == cluster]
            
             st.markdown(f"""
@@ -337,4 +341,5 @@ st.markdown("""
     <div style='text-align: center; color: white; padding: 20px;'>
     <p>🛍️ Mall Customer Clustering Analysis | Powered by K-Means & Decision Tree ML Models</p>
     </div>
+
 """, unsafe_allow_html=True)
