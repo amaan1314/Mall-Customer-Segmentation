@@ -245,8 +245,10 @@ if model is not None and df is not None:
             # Calculate cluster statistics from original data
             clustered_data = df.copy()
 
-            features = clustered_data[['Annual Income (k$)', 'Spending Score (1-100)']]
+            features = clustered_data[['Age','Annual Income (k$)', 'Spending Score (1-100)']]
+
             clustered_data['Cluster'] = model.predict(features)
+
 
             cluster_stats = clustered_data[clustered_data['Cluster'] == cluster]
            
@@ -343,3 +345,4 @@ st.markdown("""
     </div>
 
 """, unsafe_allow_html=True)
+
