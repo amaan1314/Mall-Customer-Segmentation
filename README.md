@@ -54,7 +54,7 @@ The project uses the **Mall Customers Dataset**, which includes:
 ## 👤 Author
 **Mohammed**
 * Data Science Student & Engineering Fresher
-* [LinkedIn](YOUR_LINKEDIN_URL) | [Portfolio](YOUR_PORTFOLIO_URL)
+* [LinkedIn](https://www.linkedin.com/in/mohammed-amaan14/) | [Portfolio](YOUR_PORTFOLIO_URL)
 
 ---
 *This project was developed as part of my professional development in Data Science and Machine Learning.*
